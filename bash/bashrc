@@ -1,0 +1,64 @@
+# source ~/.bash/gitprompt.sh
+
+
+alias ll="ls -la"
+
+export PATH="bin:$PATH" # BINSTUBS BITCHES
+
+alias watch_http="sudo tcpdump -nn -X -S -s 0 -i all port http"
+
+encode()
+{
+  openssl base64 < $1 | tr -d '\n' | pbcopy
+}
+
+. /usr/local/etc/bash_completion.d/git-completion.bash
+. /usr/local/etc/bash_completion.d/git-prompt.sh
+PS1='$(__git_ps1 "\[[1;38m\](\[[0;36m\]%s\[[0m[1;38m\])\[[0m\] ")\[[0;37m\]\w\[[0;33m\]\$\[[0m\] '
+
+#. ~/.oh-my-git/prompt.sh
+
+export CLICOLOR=1
+#export LSCOLORS=ExFxCxDxBxegedabagacad
+export LSCOLORS=exfxbEaEBxxEhEhBaDaCaD
+#alias git=hub
+
+export GREP_OPTIONS='--color=auto --exclude=*.log --exclude-dir=.git'
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig/
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+serve()
+{
+  ruby -run -e httpd -- . -p 8000
+}
+
+destroy_merged_branches () {
+  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+}
+
+#echo ">> dinghy ✔"
+#export DOCKER_HOST=tcp://192.168.99.100:2376
+#export DOCKER_CERT_PATH=/Users/michael.dawson/.docker/machine/machines/dinghy
+#export DOCKER_TLS_VERIFY=1
+#export DOCKER_MACHINE_NAME=dinghy
+#[ $? == 0 ] && echo "[ OK ] docker"
+
+function weather {
+  curl wttr.in/brisbane
+}
+
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="~/code/plain-utils/bin:$PATH"
+
+eval "$(direnv hook bash)"
+
+# SLOW!
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt
+
+source ~/.fresh/build/shell.sh

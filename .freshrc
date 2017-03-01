@@ -1,0 +1,29 @@
+# handles updating fresh
+fresh freshshell/fresh bin/fresh --bin
+
+# vim
+fresh-options --file=~/.vimrc
+  fresh vim/base.vim
+  fresh vim/plugins/\*.vim
+  fresh vim/config.vim
+fresh-options
+
+# git
+fresh git/gitignore --file
+fresh git/gitconfig --file
+
+# screen
+fresh screen/screenrc --file
+
+# bash
+fresh-options --file=~/.bashrc
+  fresh bash/bashrc
+  fresh bash/extras/\*
+fresh-options
+
+# run install scripts
+#fresh_after_build() {
+#  pushd ~/.dotfiles/scripts
+#    ./install.sh
+#  popd
+#}

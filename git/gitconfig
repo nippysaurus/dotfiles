@@ -1,0 +1,38 @@
+[user]
+        name = Michael Dawson
+        email = nippysaurus@me.com
+[hub]
+        protocol = https
+[credential]
+        helper = osxkeychain
+[alias]
+        s = status
+        co = checkout
+        count = !git shortlog -sn
+        l = log --graph --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
+[push]
+        default = current
+[filter "media"]
+        clean = git-media-clean %f
+        smudge = git-media-smudge %f
+[log]
+        abbrevCommit = true
+[merge]
+        conflictstyle = diff3
+        #tool = vimdiff
